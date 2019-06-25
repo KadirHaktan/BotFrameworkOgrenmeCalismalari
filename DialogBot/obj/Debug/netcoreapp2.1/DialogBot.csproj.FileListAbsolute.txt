@@ -1,0 +1,11 @@
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\bin\Debug\netcoreapp2.1\DialogBot.deps.json
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\bin\Debug\netcoreapp2.1\DialogBot.runtimeconfig.json
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\bin\Debug\netcoreapp2.1\DialogBot.runtimeconfig.dev.json
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\bin\Debug\netcoreapp2.1\DialogBot.dll
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.csprojAssemblyReference.cache
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.csproj.CoreCompileInputs.cache
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.RazorAssemblyInfo.cache
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.RazorAssemblyInfo.cs
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.AssemblyInfoInputs.cache
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.AssemblyInfo.cs
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.RazorTargetAssemblyInfo.cache
