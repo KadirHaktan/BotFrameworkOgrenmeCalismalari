@@ -8,8 +8,8 @@ namespace DialogBot.Dialogs.Balance.CurrentAccount
 {
     public class CheckCurrentAccountBalanceDialog:WaterfallDialog
     {
-        public static string Id => "CheckCurrentAccountBalanceDialog";
-        public static CheckCurrentAccountBalanceDialog Instance = new CheckCurrentAccountBalanceDialog(Id);
+        public static string ID => "CheckCurrentAccountBalanceDialog";
+        public static CheckCurrentAccountBalanceDialog Instance = new CheckCurrentAccountBalanceDialog(ID);
 
 
 

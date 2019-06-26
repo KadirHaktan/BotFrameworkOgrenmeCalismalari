@@ -12,9 +12,9 @@ namespace DialogBot.Dialogs
 {
     public class MainDialog:WaterfallDialog
     {
-        public static string Id => "MainDialog";
+        public static string ID => "MainDialog";
 
-        public static MainDialog Instance { get; } = new MainDialog(Id);
+        public static MainDialog Instance { get; } = new MainDialog(ID);
 
 
 
@@ -39,19 +39,19 @@ namespace DialogBot.Dialogs
 
                 if (response == "Check balance")
                 {
-                    return await stepContext.BeginDialogAsync(CheckBalanceDialog.Id);
+                    return await stepContext.BeginDialogAsync(CheckBalanceDialog.ID);
                 }
 
                 if (response == "Make Payment")
                 {
-                    return await stepContext.BeginDialogAsync(MakePaymentDialog.Id);
+                    return await stepContext.BeginDialogAsync(MakePaymentDialog.ID);
                 }
 
                 return await stepContext.NextAsync();
             });
 
 
-            AddStep(async (stepContext, cancellianToken) => { return await stepContext.ReplaceDialogAsync(Id); });
+            AddStep(async (stepContext, cancellianToken) => { return await stepContext.ReplaceDialogAsync(ID); });
 
 
             

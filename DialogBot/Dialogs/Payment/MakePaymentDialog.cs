@@ -49,7 +49,7 @@ namespace DialogBot.Dialogs.Payment
             });
         }
 
-        public static string Id => "MakePaymentDialog";
-        public static MakePaymentDialog Instance = new MakePaymentDialog(Id);
+        public static string ID => "MakePaymentDialog";
+        public static MakePaymentDialog Instance = new MakePaymentDialog(ID);
     }
 }

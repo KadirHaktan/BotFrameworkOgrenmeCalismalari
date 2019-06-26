@@ -42,12 +42,12 @@ namespace DialogBot.Dialogs.Balance
 
                 if (response.Value == "Current")
                 {
-                    return await stepContext.BeginDialogAsync(CheckCurrentAccountBalanceDialog.Id);
+                    return await stepContext.BeginDialogAsync(CheckCurrentAccountBalanceDialog.ID);
                 }
 
                 if (response.Value == "Saving")
                 {
-                    return await stepContext.BeginDialogAsync(SavingCheckAccountBalanceDialog.Id);
+                    return await stepContext.BeginDialogAsync(SavingCheckAccountBalanceDialog.ID);
                 }
 
                 return await stepContext.ReplaceDialogAsync(Id);
@@ -56,7 +56,7 @@ namespace DialogBot.Dialogs.Balance
         }
 
 
-        public static string Id => "CheckBalanceDialog";
-        public static CheckBalanceDialog Instance = new CheckBalanceDialog(Id);
+        public static string ID => "CheckBalanceDialog";
+        public static CheckBalanceDialog Instance = new CheckBalanceDialog(ID);
     }
 }
