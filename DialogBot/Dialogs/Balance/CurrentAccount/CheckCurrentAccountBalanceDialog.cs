@@ -8,6 +8,7 @@ namespace DialogBot.Dialogs.Balance.CurrentAccount
 {
     public class CheckCurrentAccountBalanceDialog:WaterfallDialog
     {
+        public static string Id => "CheckCurrentAccountBalanceDialog";
         public CheckCurrentAccountBalanceDialog(string dialogID,IEnumerable<WaterfallStep> steps) : base(dialogID, steps)
         {
 

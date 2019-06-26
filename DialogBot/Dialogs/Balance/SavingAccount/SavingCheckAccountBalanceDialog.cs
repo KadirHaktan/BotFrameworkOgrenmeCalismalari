@@ -8,6 +8,8 @@ namespace DialogBot.Dialogs.Balance.SavingAccount
 {
     public class SavingCheckAccountBalanceDialog:WaterfallDialog
     {
+        public static string Id => "SavingCheckAccountBalanceDialog";
+
         public SavingCheckAccountBalanceDialog(string dialogID, IEnumerable<WaterfallStep> steps) : base(dialogID, steps)
         {
 

@@ -13,6 +13,6 @@ namespace DialogBot.Dialogs.Payment
 
         }
 
-        public static string Id { get; set; }
+        public static string Id => "MakePaymentDialog";
     }
 }
