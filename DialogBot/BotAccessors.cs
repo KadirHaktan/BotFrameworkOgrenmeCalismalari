@@ -19,7 +19,7 @@ namespace DialogBot
         }
 
         public  IStatePropertyAccessor<BankStateBot> BankStateBotAccessor { get; set; }
-        public IStatePropertyAccessor<DialogState> DialogStateBotAccessor { get; set; }
+        public  IStatePropertyAccessor<DialogState> DialogStateBotAccessor { get; set; }
 
         public static string BankStateBotAccessorName { get; } = $"{nameof(BotAccessors)}.BankStateBotAccessor";
         public static string DialogStateBotAccessorName { get; } = $"{nameof(BotAccessors)}.DialogStateBotAccessor";
