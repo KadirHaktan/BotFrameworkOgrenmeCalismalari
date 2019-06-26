@@ -71,7 +71,7 @@ namespace DialogBot.Bots
 
                 if (dialogCtx != null)
                 {
-                    await dialogCtx.BeginDialogAsync(MainDialog.Id, cancellationToken);
+                    await dialogCtx.BeginDialogAsync(MainDialog.ID, cancellationToken);
                 }
 
                 else
