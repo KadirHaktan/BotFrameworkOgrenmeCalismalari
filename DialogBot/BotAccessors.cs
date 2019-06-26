@@ -1,4 +1,5 @@
-﻿using Microsoft.Bot.Builder;
+﻿using DialogBot.Bots;
+using Microsoft.Bot.Builder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,15 @@ namespace DialogBot
             this._state = _conversationState ?? throw new ArgumentNullException(nameof(_state));
         }
 
-        //public IStatePropertyAccessor<>
-        //public IStatePropertyAccessor<>
+        public IStatePropertyAccessor<BankStateBot> BankStateBotAccessor { get; set; }
+
+        public static string BankStateBotAccessorName { get; } = $"{nameof(BotAccessors)}.BankStateBotAccessor";
+
+
+       
 
         //public static string AccessorName1
-        //public static string AccessorName2
+       
 
 
     }
