@@ -12,5 +12,7 @@ namespace DialogBot.Dialogs.Payment
         {
 
         }
+
+        public static string Id { get; set; }
     }
 }

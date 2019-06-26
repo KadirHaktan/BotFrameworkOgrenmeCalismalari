@@ -12,5 +12,8 @@ namespace DialogBot.Dialogs.Balance
         {
 
         }
+
+
+        public static string Id { get; set; }
     }
 }
