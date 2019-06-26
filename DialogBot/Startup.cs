@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DialogBot.Bots;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.BotFramework;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Integration;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,7 +44,34 @@ namespace DialogBot
             services.AddSingleton(configuration);
 
 
-            //services.AddBot<>
+            services.AddBot<BankingBot>(options =>
+            {
+
+                var conversationState = new ConversationState(new MemoryStorage());
+
+                options.State.Add(conversationState);
+
+                options.CredentialProvider = new ConfigurationCredentialProvider(configuration);
+
+              
+                
+            });
+
+            services.AddSingleton(servicesProvider =>
+            {
+                var options = servicesProvider.GetRequiredService<IOptions<BotFrameworkOptions>>().Value;
+
+                var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
+
+                var accessors = new BotAccessors(conversationState)
+                {
+                    DialogStateBotAccessor = conversationState.CreateProperty<DialogState>(BotAccessors.DialogStateBotAccessorName),
+                    BankStateBotAccessor = conversationState.CreateProperty<BankStateBot>(BotAccessors.BankStateBotAccessorName)
+                };
+
+                return accessors;
+               
+            });
                 
         }
 

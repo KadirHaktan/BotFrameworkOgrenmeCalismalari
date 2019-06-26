@@ -18,7 +18,7 @@ namespace DialogBot
             this._state = _conversationState ?? throw new ArgumentNullException(nameof(_state));
         }
 
-        public static IStatePropertyAccessor<BankStateBot> BankStateBotAccessor { get; set; }
+        public  IStatePropertyAccessor<BankStateBot> BankStateBotAccessor { get; set; }
         public IStatePropertyAccessor<DialogState> DialogStateBotAccessor { get; set; }
 
         public static string BankStateBotAccessorName { get; } = $"{nameof(BotAccessors)}.BankStateBotAccessor";

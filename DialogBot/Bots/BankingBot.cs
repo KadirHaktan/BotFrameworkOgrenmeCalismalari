@@ -46,7 +46,7 @@ namespace DialogBot.Bots
         {
             if (turnContext.Activity.Type == ActivityTypes.Message)
             {
-                var state = await BotAccessors.BankStateBotAccessor.GetAsync(turnContext, () => new BankStateBot(), cancellationToken);
+                var state = await accessors.BankStateBotAccessor.GetAsync(turnContext, () => new BankStateBot(), cancellationToken);
 
                 turnContext.TurnState.Add("BotAccessors",accessors);
 
