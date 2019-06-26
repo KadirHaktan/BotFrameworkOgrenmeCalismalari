@@ -9,3 +9,6 @@ C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netco
 C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.AssemblyInfoInputs.cache
 C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.AssemblyInfo.cs
 C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.RazorTargetAssemblyInfo.cache
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\bin\Debug\netcoreapp2.1\DialogBot.pdb
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.dll
+C:\Users\doga\Desktop\Projeler\DialogProject\DialogBot\DialogBot\obj\Debug\netcoreapp2.1\DialogBot.pdb

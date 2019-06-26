@@ -34,9 +34,10 @@ namespace DialogBot.Bots
 
             dialogs.Add(MainDialog.Instance);
             dialogs.Add(MakePaymentDialog.Instance);
+            dialogs.Add(CheckBalanceDialog.Instance);
             dialogs.Add(CheckCurrentAccountBalanceDialog.Instance);
             dialogs.Add(SavingCheckAccountBalanceDialog.Instance);
-            dialogs.Add(CheckBalanceDialog.Instance);
+            
 
             dialogs.Add(new ChoicePrompt("choicePrompt"));
             dialogs.Add(new TextPrompt("textPrompt"));
