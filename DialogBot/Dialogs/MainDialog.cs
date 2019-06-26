@@ -12,15 +12,24 @@ namespace DialogBot.Dialogs
 {
     public class MainDialog:WaterfallDialog
     {
-        public MainDialog(string dialogID,IEnumerable<WaterfallStep> step = null):base(dialogID,step)
+        public static string Id => "MainDialog";
+
+        public static MainDialog Instance { get; } = new MainDialog(Id);
+
+
+
+
+
+
+        public MainDialog(string dialogID, IEnumerable<WaterfallStep> step = null) : base(dialogID, step)
         {
             AddStep(async (stepContext, cancellianToken) =>
             {
                 return await stepContext.PromptAsync("choicePrompt",
                     new PromptOptions()
                     {
-                        Prompt=stepContext.Context.Activity.CreateReply("Hi!! I am Banking Bot.Would like to make payment or balance"),
-                        Choices = new[] {new Choice("Check balance"),new Choice("Make Payment")}
+                        Prompt = stepContext.Context.Activity.CreateReply("Hi!! I am Banking Bot.Would like to make payment or balance"),
+                        Choices = new[] { new Choice("Check balance"), new Choice("Make Payment") }
                     });
             });
 
@@ -28,18 +37,24 @@ namespace DialogBot.Dialogs
             {
                 var response = (stepContext.Result as FoundChoice)?.Value;
 
-                if(response=="Check balance")
+                if (response == "Check balance")
                 {
                     return await stepContext.BeginDialogAsync(CheckBalanceDialog.Id);
                 }
 
-                if(response=="Make Payment")
+                if (response == "Make Payment")
                 {
                     return await stepContext.BeginDialogAsync(MakePaymentDialog.Id);
                 }
 
                 return await stepContext.NextAsync();
             });
+
+
+            AddStep(async (stepContext, cancellianToken) => { return await stepContext.ReplaceDialogAsync(Id); });
+
+
+            
         }
     }
 }
