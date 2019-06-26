@@ -9,10 +9,15 @@ namespace DialogBot.Dialogs.Balance.SavingAccount
     public class SavingCheckAccountBalanceDialog:WaterfallDialog
     {
         public static string Id => "SavingCheckAccountBalanceDialog";
+        public static SavingCheckAccountBalanceDialog Instance = new SavingCheckAccountBalanceDialog(Id);
 
-        public SavingCheckAccountBalanceDialog(string dialogID, IEnumerable<WaterfallStep> steps) : base(dialogID, steps)
+        public SavingCheckAccountBalanceDialog(string dialogID, IEnumerable<WaterfallStep> steps=null) : base(dialogID, steps)
         {
-
+            AddStep(async (stepContext, cancellianToken) =>
+            {
+                await stepContext.Context.SendActivityAsync("Your savings balance is...");
+                return await stepContext.EndDialogAsync();
+            });
         }
     }
 }

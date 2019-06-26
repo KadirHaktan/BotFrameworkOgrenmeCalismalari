@@ -9,8 +9,18 @@ namespace DialogBot.Dialogs.Balance.CurrentAccount
     public class CheckCurrentAccountBalanceDialog:WaterfallDialog
     {
         public static string Id => "CheckCurrentAccountBalanceDialog";
-        public CheckCurrentAccountBalanceDialog(string dialogID,IEnumerable<WaterfallStep> steps) : base(dialogID, steps)
+        public static CheckCurrentAccountBalanceDialog Instance = new CheckCurrentAccountBalanceDialog(Id);
+
+
+
+        public CheckCurrentAccountBalanceDialog(string dialogID,IEnumerable<WaterfallStep> steps=null) : base(dialogID, steps)
         {
+            AddStep(async (stepContext, cancellianToken) =>
+            {
+                await stepContext.Context.SendActivityAsync("Your current balance is...");
+                return await stepContext.EndDialogAsync();
+
+            });
 
         }
     }
