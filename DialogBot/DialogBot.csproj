@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dialogs\" />
     <Folder Include="Bots\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
