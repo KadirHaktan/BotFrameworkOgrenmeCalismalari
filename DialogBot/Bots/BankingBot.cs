@@ -74,10 +74,9 @@ namespace DialogBot.Bots
                     await dialogCtx.BeginDialogAsync(MainDialog.ID, cancellationToken);
                 }
 
-                else
-                {
-                    await dialogCtx.ContinueDialogAsync(cancellationToken);
-                }
+               
+                await dialogCtx.ContinueDialogAsync(cancellationToken);
+                
 
                 await accessors._state.SaveChangesAsync(turnContext);
 
