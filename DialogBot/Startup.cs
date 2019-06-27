@@ -26,6 +26,11 @@ namespace DialogBot
         {
             RootPath = env.ContentRootPath;
         }
+        //Kök dizinimize ya da yolumuz için aslında burda Depency Injection yaptık diyebiliriz.Çünkü
+        // RootPath imize atadığımız tanımlama da bir interface ait property ile eşleştiriyoruz.Interface olduğu için de
+        // aslında IHostingEnvironment dan implemente olmuş herhangi bir class'ı da aslında kök yolumuza atanabilecektir.Bir yerlerde
+        // tabi Startup class'ından bir nesne oluşturursak.Yani IHostingEnvironment dan destek alan classdan faydalanılabilecektir.
+        // Bu da bir class'a olan bağımlılıktan kurtarıyor.İşte bu yüzden aslında burda küçük de olsa bir Depency Injection uygulanmış.
 
         //public IConfiguration Configuration { get; }
 
@@ -88,6 +93,11 @@ namespace DialogBot
                 {
                     DialogStateBotAccessor = conversationState.CreateProperty<DialogState>(BotAccessors.DialogStateBotAccessorName),
                     BankStateBotAccessor = conversationState.CreateProperty<BankStateBot>(BotAccessors.BankStateBotAccessorName)
+
+                    //ConversationState yeni stateleri özellik yaratarak eklenmesi ya da üye edilmesi diyebiliriz.Conversationstate
+                    //konuşma esnasında kullanılacak olan statelerin listesi gibi düşünelebilir.Yapıcı metota da tanımlanma nedeni 
+                    // de erişimci sayesinde dediğimiz gibi konuşma esnasında kullanılacak statelerin hafıza da bir listelenebilecek
+                    // yapıya eklenmesi diyebiliriz.
                 };
 
                 
@@ -116,6 +126,7 @@ namespace DialogBot
             app.UseStaticFiles();
 
             app.UseBotFramework();
+                //uygulamamıza BotFramework unu kullanacaz diyoruz
         }
     }
 }

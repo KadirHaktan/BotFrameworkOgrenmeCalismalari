@@ -11,7 +11,8 @@ namespace DialogBot
     public class BotAccessors
     {
 
-        public ConversationState _state { get; set; }
+        public ConversationState _state { get; set; }//Konuşma esnasında kullanılacak statelerin liste gibi bir yapıda
+        //saklanabilmesi için kullanılacak liste yapılı state diyebiliriz.
 
         public BotAccessors(ConversationState _conversationState)
         {
@@ -23,8 +24,11 @@ namespace DialogBot
 
         public static string BankStateBotAccessorName { get; } = $"{nameof(BotAccessors)}.BankStateBotAccessor";
         public static string DialogStateBotAccessorName { get; } = $"{nameof(BotAccessors)}.DialogStateBotAccessor";
+        //ConversationState nesnemize yeni özellik ya da state eklenirken ait olabileceği bir string tipinde özellikleri oluşturulmuş.
        
 
 
     }
+
+    //Birden fazla bot state erişim sağlayabilmek için kullanılacak erişimci sınıfı.
 }

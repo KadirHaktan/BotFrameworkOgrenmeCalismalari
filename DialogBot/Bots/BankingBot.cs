@@ -24,9 +24,8 @@ namespace DialogBot.Bots
 
         public BotAccessors accessors { get; set; }
 
-        //Botumuza gerektiğinde statelerimize çağırmak istersek farklı state yapilarini içinde barındırabilen
-        //bir aksesuar ya da model yapısı sınıfı diyebiliriz.Botumuz statelere erişebilmesi için farklı stateleri tutabilen model
-        //class diyelim
+        //Botumuzda gerektiğinde statelerimizi çağırmak istersek farklı state yapilarini içinde barındırabilen
+        //bir aksesuar ya da bot state erişimcisi diyebiliriz.MVC deki gibi model mantığı gibi düşenebiliriz.
 
         public BankingBot(BotAccessors accessors)
         {
@@ -59,28 +58,32 @@ namespace DialogBot.Bots
             if (turnContext.Activity.Type == ActivityTypes.Message)
             {
 
-                //Erişimciden durum kullanma gereği olursa diye bir durum nesnesi olusutruluyor ve sonrasında
-                //dönen durumlara da durum botlara erişim sağlayan BotAccessors nesnesi ekleniyor
+                //Erişimciden state kullanma gereği olursa diye bir state erişimcimizden banka işlemleri alakalı spesifik bilgilerin
+                //storage ile kaydedilecek olan state erişimcisinin get metodu ile bot state özelliklerin tutulduğu sınıftan
+                //bir state yapısı olusturuluyor
                 var state = await accessors.BankStateBotAccessor.GetAsync(turnContext, () => new BankStateBot(), cancellationToken);
 
                 turnContext.TurnState.Add("BotAccessors",accessors);
+                //Birden fazla state'in bulunduğu erişimciyi ekliyoruz
 
 
 
                 var dialogCtx = await dialogs.CreateContextAsync(turnContext,cancellationToken);
+                //diyalog ortamı nesnesi yaratılıyor
 
-                if (dialogCtx.ActiveDialog==null)
+                if (dialogCtx.ActiveDialog==null)//eğer diyalog aktif olarak boşsa diyalog Ana diyalog başlayacak 
                 {
                     await dialogCtx.BeginDialogAsync(MainDialog.ID,cancellationToken);
                 }
 
-                else
+                else//Aksi durumda da diyalog devam edecek
                 {
                     await dialogCtx.ContinueDialogAsync(cancellationToken);
                 }
                 
                 
-
+                //State de olan değişiklikleri kaydedilecek fonksiyon yani sohbette geçen spesifik verileri state'imize kaydedecez.Tabi
+                //Startup dosyamizda belirtiğimiz Storage yapısı ile birlikte değişiklikleri kaydedecez
                 await accessors._state.SaveChangesAsync(turnContext,false,cancellationToken);
 
 

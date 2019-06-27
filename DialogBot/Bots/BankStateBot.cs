@@ -16,6 +16,7 @@ namespace DialogBot.Bots
     //bir model sınıfı olusturuyoruz.
 
 
-    //State dediğimiz şey chatbot esnasında konuşmada geçen konuşmaları storage yapısı ile tutulan özel bilgileri denilebilir
-    //State deki bilgiler de storage da tutulduğu içinde önceki konuşmalarda  chatbot da saklı kalacaktir.
+   //State dediğimiz şey konuşma esnasında storage yapısı ile chatbot'un hafızasını kaydedilecek olan önemli bilgilerin saklandığı
+   //yapıdır.O saklanacak verilerin yapısal bir örneği olusturması sayesinde kaydedikten chatbot her seferinde kullanıcıya data
+   //değerini sormadan verinin aitliğine de anlayabilecek.
 }
