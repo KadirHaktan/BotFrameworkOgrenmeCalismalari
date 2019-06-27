@@ -13,7 +13,7 @@ namespace DialogBot.Dialogs.Payment
 
             AddStep(async (stepContext, cancellianToken) =>
             {
-                return await stepContext.PromptAsync(dialogid, new PromptOptions
+                return await stepContext.PromptAsync("textPrompt", new PromptOptions
                 {
                     Prompt=stepContext.Context.Activity.CreateReply("Who would like to pay?")
                 });
@@ -29,7 +29,7 @@ namespace DialogBot.Dialogs.Payment
                 state.Receipient = stepContext.Result.ToString();
 
 
-                return await stepContext.PromptAsync(dialogid, new PromptOptions
+                return await stepContext.PromptAsync("numberPrompt", new PromptOptions
                 {
                     Prompt = stepContext.Context.Activity.CreateReply($"{state.Receipient} got it{Environment.NewLine} How much should I pay"),
                     RetryPrompt = stepContext.Context.Activity.CreateReply("Sorry,please give a number")

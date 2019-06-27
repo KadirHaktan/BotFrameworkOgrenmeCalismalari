@@ -66,19 +66,22 @@ namespace DialogBot.Bots
                 turnContext.TurnState.Add("BotAccessors",accessors);
 
 
-                
-                var dialogCtx = await dialogs.CreateContextAsync(turnContext, cancellationToken);
 
-                if (dialogCtx != null)
+                var dialogCtx = await dialogs.CreateContextAsync(turnContext,cancellationToken);
+
+                if (dialogCtx.ActiveDialog==null)
                 {
-                    await dialogCtx.BeginDialogAsync(MainDialog.ID, cancellationToken);
+                    await dialogCtx.BeginDialogAsync(MainDialog.ID,cancellationToken);
                 }
 
-               
-                await dialogCtx.ContinueDialogAsync(cancellationToken);
+                else
+                {
+                    await dialogCtx.ContinueDialogAsync(cancellationToken);
+                }
+                
                 
 
-                await accessors._state.SaveChangesAsync(turnContext);
+                await accessors._state.SaveChangesAsync(turnContext,false,cancellationToken);
 
 
             }

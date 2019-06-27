@@ -9,54 +9,47 @@ using System.Threading.Tasks;
 
 namespace DialogBot.Dialogs.Balance
 {
-    public class CheckBalanceDialog:WaterfallDialog
+    public class CheckBalanceDialog : WaterfallDialog
     {
-        public CheckBalanceDialog(string dialogID,IEnumerable<WaterfallStep> steps=null) : base(dialogID, steps)
-        {
+        public static string ID => "checkBalanceDialog";
+        public static CheckBalanceDialog Instance { get; } = new CheckBalanceDialog(ID);
 
-            AddStep(async (stepContext, cancellianToken) =>
+
+        public CheckBalanceDialog(string dialogID, IEnumerable<WaterfallStep> steps = null) : base(dialogID, steps)
+        {
+            AddStep(async (stepContext, cancellationToken) =>
             {
-                return await stepContext.PromptAsync(dialogID, new PromptOptions()
-                {
-                    Prompt = stepContext.Context.Activity.CreateReply("Which Account"),
-                    Choices = new[]
+                return await stepContext.PromptAsync("choicePrompt",
+                    new PromptOptions
                     {
-                        new Choice
-                        {
-                            Value="Current"
-                        },
-                        new Choice
-                        {
-                            Value="Saving"
-                        }
-                    }.ToList()
-                });
-            
+                        Prompt = stepContext.Context.Activity.CreateReply($"[CheckBalanceDialog] Which account?"),
+                        Choices = new[] { new Choice { Value = "Current" }, new Choice { Value = "Savings" } }.ToList()
+                    });
             });
 
-
-            AddStep(async (stepContext, cancellianToken) =>
+            AddStep(async (stepContext, cancellationToken) =>
             {
                 var response = stepContext.Result as FoundChoice;
-
 
                 if (response.Value == "Current")
                 {
                     return await stepContext.BeginDialogAsync(CheckCurrentAccountBalanceDialog.ID);
                 }
 
-                if (response.Value == "Saving")
+                if (response.Value == "Savings")
                 {
                     return await stepContext.BeginDialogAsync(SavingCheckAccountBalanceDialog.ID);
                 }
 
-                return await stepContext.ReplaceDialogAsync(Id);
+                return await stepContext.NextAsync();
             });
-
         }
 
-
-        public static string ID => "CheckBalanceDialog";
-        public static CheckBalanceDialog Instance = new CheckBalanceDialog(ID);
     }
-}
+
+   
+
+      
+
+ }
+
